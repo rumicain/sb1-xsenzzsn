@@ -1,0 +1,118 @@
+@import '@fontsource/playfair-display/400.css';
+@import '@fontsource/playfair-display/700.css';
+@import '@fontsource/montserrat/400.css';
+@import '@fontsource/montserrat/500.css';
+@import '@fontsource/montserrat/600.css';
+@import '@fontsource/lora/400.css';
+@import '@fontsource/lora/500.css';
+@import '@fontsource/lora/600.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-pure-black text-pure-white font-montserrat;
+    cursor: default;
+  }
+}
+
+@layer components {
+  .subtle-accent {
+    box-shadow: 0 0 20px rgba(180, 147, 76, 0.1);
+    background: linear-gradient(
+      145deg,
+      rgba(180, 147, 76, 0.05) 0%,
+      rgba(180, 147, 76, 0.02) 100%
+    );
+    backdrop-filter: blur(10px);
+  }
+  
+  .monochrome-surface {
+    background: linear-gradient(
+      145deg,
+      rgba(211, 211, 211, 0.05) 0%,
+      rgba(211, 211, 211, 0.02) 50%,
+      rgba(211, 211, 211, 0.05) 100%
+    );
+    border: 1px solid rgba(211, 211, 211, 0.1);
+  }
+  
+  .btn-primary {
+    @apply px-8 py-4 text-pure-black font-semibold tracking-wider 
+           transition-all duration-300 hover:scale-105 
+           uppercase relative overflow-hidden;
+    background: linear-gradient(
+      145deg,
+      #FFFFFF 0%,
+      #D3D3D3 50%,
+      #FFFFFF 100%
+    );
+    box-shadow: 
+      0 0 20px rgba(180, 147, 76, 0.1),
+      inset 0 0 10px rgba(255, 255, 255, 0.1);
+  }
+  
+  .btn-primary:hover {
+    background: linear-gradient(
+      145deg,
+      #FFFFFF 0%,
+      #E8E8E8 50%,
+      #FFFFFF 100%
+    );
+  }
+  
+  .btn-secondary {
+    @apply px-8 py-4 text-accent font-semibold 
+           tracking-wider transition-all duration-300 
+           uppercase relative overflow-hidden monochrome-surface;
+    box-shadow: 
+      0 0 20px rgba(180, 147, 76, 0.1),
+      inset 0 0 1px rgba(180, 147, 76, 0.5);
+  }
+  
+  .btn-secondary:hover {
+    @apply bg-accent/10;
+    box-shadow: 
+      0 0 30px rgba(180, 147, 76, 0.2),
+      inset 0 0 2px rgba(180, 147, 76, 0.8);
+  }
+
+  .stat-counter {
+    @apply text-4xl md:text-5xl lg:text-6xl font-playfair mb-2;
+    background: linear-gradient(145deg, #FFFFFF 0%, #D3D3D3 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 20px rgba(180, 147, 76, 0.2);
+  }
+
+  .stat-label {
+    @apply text-sm md:text-base uppercase tracking-wider;
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+}
+
+.custom-cursor {
+  @apply fixed w-8 h-8 pointer-events-none z-50 rounded-full 
+         border border-accent transition-transform duration-200 
+         ease-out transform -translate-x-1/2 -translate-y-1/2;
+  box-shadow: 0 0 10px rgba(180, 147, 76, 0.3);
+}
+
+.video-overlay {
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.7) 0%,
+    rgba(0, 0, 0, 0.5) 50%,
+    rgba(0, 0, 0, 0.8) 100%
+  );
+}
